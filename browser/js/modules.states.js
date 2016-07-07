@@ -1,6 +1,14 @@
 'use strict';
 
-juke.config(function ($stateProvider) {
+juke.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+
+  // use the HTML5 History API
+  $locationProvider.html5Mode(true);
+
+  $urlRouterProvider
+  .when('/', '/albums')
+  .when('/artists/:id', '/artists/:id/albums');
+
 
   $stateProvider.state("albumList", {
     url: '/albums',
@@ -47,13 +55,13 @@ juke.config(function ($stateProvider) {
   });
 
     $stateProvider.state("artist.albums", {
-    url: '/artists/:id/albums',
+    url: '/albums',
     templateUrl: '../views/artist.albums.html',
     controller: 'ArtistCtrl'
   });
 
     $stateProvider.state("artist.songs", {
-    url: '/artists/:id/songs',
+    url: '/songs',
     templateUrl: '../views/songs.html',
     controller: 'ArtistCtrl'
   });
