@@ -8,4 +8,22 @@ juke.config(function ($stateProvider) {
     controller: 'AlbumsCtrl'
   });
 
+  $stateProvider.state("album", {
+    url: '/albums/:id',
+    templateUrl: '../views/album.html',
+    controller: 'AlbumCtrl'
+  });
+
+  $stateProvider.state("artistList", {
+    url: '/artists',
+    templateUrl: '../views/artists.html',
+    controller: 'ArtistsCtrl'
+  });
+
+    $stateProvider.state("artist", {
+    url: '/artists/:id',
+    templateUrl: '../views/artist.html',
+    controller: 'ArtistCtrl'
+  });
+
 });
